@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coze Chat</title>
+  <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
+</head>
+<body>
+  <div id="coze-chat"></div>
+  <script>
+    new CozeWebSDK.WebChatClient({
+      container: '#coze-chat', // 指定容器
+      config: {
+        bot_id: '7494166800239214602',
+      },
+      componentProps: {
+        title: 'Coze',
+      },
+      auth: {
+        type: 'token',
+        token: 'pat_JyIw72FILMgmpeFdJQaRfbPxH0C0nzpKHQZTt1cwfRD1KYUo1DuVuFub8uIrNuiw',
+        onRefreshToken: function () {
+          return 'pat_********'
+        }
+      }
+    });
+  </script>
+</body>
+</html>
