@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coze Chat</title>
+  <script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/cn/index.js"></script>
+  <style>
+    /* 您可以为 #coze-chat 添加样式，但这主要作为 SDK 的挂载点 */
+    /* 聊天窗口本身的样式和位置通常由 SDK 控制 */
+    #coze-chat {
+      /* 示例：如果需要，可以定义一些基本占位符样式 */
+      /* width: 100%; */
+      /* height: 100vh; */
+    }
+  </style>
+</head>
+<body>
+  <div id="coze-chat"></div>
+  <script>
+    // 将 SDK 客户端实例保存到一个变量中
+    const chatClient = new CozeWebSDK.WebChatClient({
+      container: '#coze-chat', // 指定容器，SDK 可能仍需要此容器进行初始化或定位
+      config: {
+        bot_id: '7501918449657692187',
+      },
+      componentProps: {
+        title: 'Coze',
+        // defaultOpen: true, // 此属性在不显示悬浮球时不再需要
+        asstBtn: {
+          isNeed: false // 设置为 false，不展示悬浮球
+        }
+      },
+      auth: {
+        type: 'token',
+        token: 'pat_JyIw72FILMgmpeFdJQaRfbPxH0C0nzpKHQZTt1cwfRD1KYUo1DuVuFub8uIrNuiw',
+        onRefreshToken: function () {
+          return 'pat_********'
+        }
+      }
+    });
+
+    // 初始化后立即显示聊天框
+    chatClient.showChatBot();
+  </script>
+</body>
+</html>
